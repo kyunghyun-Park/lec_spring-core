@@ -5,13 +5,13 @@ import hello.core.member.*;
 public class MemberApp {
 
     public static void main(String[] args) {
-        AppConfig appConfig = new AppConfig();
-
         //BEFORE
-        //MemberService memberService  = new MemberServiceImpl(new MemoryMemberRepository());
+        //MemberService memberService  = new MemberServiceImpl(new MemoryMemberRepository());\
 
         //AFTER
+        AppConfig appConfig = new AppConfig();
         MemberService memberService  = appConfig.memberService();
+
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
 

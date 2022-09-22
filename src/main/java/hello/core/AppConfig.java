@@ -23,15 +23,17 @@ public class AppConfig {
         return new MemberServiceImpl(getMemberRepository());
     }
 
+    //구현 객체 주입
     private MemberRepository getMemberRepository() {
         return new MemoryMemberRepository();
     }
 
-    //OrderServiceImpl 호출하는 메소드
+    //OrderServiceImpl가 호출하는 메소드
     public OrderService orderService(){
         return new OrderServiceImpl(getMemberRepository(), getDiscountPolicy());
     }
 
+    //구현 객체 주입
     private DiscountPolicy getDiscountPolicy() {
         //return new FixDiscountPolicy();
         return new RateDiscountPolicy();
