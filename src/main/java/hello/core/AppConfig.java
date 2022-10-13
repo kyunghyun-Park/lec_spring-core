@@ -25,19 +25,19 @@ public class AppConfig {
     //MemberServiceImpl가 호출하는 메소드
     @Bean
     public MemberService memberService(){
-        return new MemberServiceImpl(getMemberRepository());
+        return new MemberServiceImpl(MemberRepository());
     }
 
     //구현 객체 주입
     @Bean
-    public MemberRepository getMemberRepository() {
+    public MemberRepository MemberRepository() {
         return new MemoryMemberRepository();
     }
 
     //OrderServiceImpl가 호출하는 메소드
     @Bean
     public OrderService orderService(){
-        return new OrderServiceImpl(getMemberRepository(), getDiscountPolicy());
+        return new OrderServiceImpl(MemberRepository(), getDiscountPolicy());
     }
 
     //구현 객체 주입
